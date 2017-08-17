@@ -1,0 +1,150 @@
+//animations
+
+@keyframes fadeInDown {
+	0% {
+		opacity: 0;
+		transform: translate3d(0,-100px,0);
+	}
+	100% {
+		opacity: 1;
+		transform: translate3d(0,0,0);
+	}
+}
+
+@keyframes fadeOutDown {
+	0% {
+		opacity: 1;
+		transform: translate3d(0,0,0);
+	}
+	100% {
+		opacity: 0;
+		transform: translate3d(0,100px,0);
+	}
+}
+
+.page {
+	&.ng-enter {
+		animation: fadeInDown 10s;
+		z-index: 9999;
+	}
+
+	&.ng-leave {
+		animation: fadeOutDown 10s;
+		z-index: 8888;
+	}
+}
+
+.cross-fade {
+	animation-delay: 1s;
+
+	&.ng-enter {
+		animation: fadeBlurIn .8s;
+		z-index: 9999;
+	}
+
+	&.ng-leave {
+		animation: fadeBlurOut .8s;
+		z-index: 8888;
+	}
+
+}
+
+.scale-fade {
+	animation-delay: 1s;
+
+	&.ng-enter {
+		animation: fadeBlurIn 1.5s;
+		z-index: 9999;
+
+		.scale-in-area {
+			animation: scaleIn 1.5s;
+		}
+
+		.details-bar {
+			animation: fromTop 1.5s;
+		}
+
+		// .overlay-container {
+		// 	animation: bounceInDown 1.5s;
+		// }
+	}
+
+	&.ng-leave {
+		animation: fadeBlurOut .8s;
+		z-index: 8888;
+
+		.details-bar {
+			animation: toTop .8s;
+		}
+	}
+}
+
+@keyframes fadeBlurIn {
+	0% {
+		opacity: 0;
+		//-webkit-filter: blur(5px);
+	}
+	100% {
+		opacity: 1;
+		//-webkit-filter: blur(0px);
+	}
+}
+
+@keyframes fadeBlurOut {
+	0% {
+		opacity: 1;
+		//-webkit-filter: blur(0px);
+	}
+	100% {
+		opacity: 0;
+		//-webkit-filter: blur(5px);
+	}
+}
+
+@keyframes scaleIn {
+	0% {
+		transform: scale3d(0.8,0.8,1);
+	}
+	100% {
+		transform: none;
+	}
+}
+
+@keyframes scaleFadeIn {
+	0% {
+		opacity: 0;
+		transform: scale3d(0.8,0.8,1);
+	}
+	100% {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+@keyframes scaleFadeOut {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes toTop {
+	0% {
+		transform: translate3d(0,0%,0);
+	}
+	100% {
+		transform: translate3d(0,-100%,0);
+
+	}
+}
+
+@keyframes fromTop {
+	0% {
+		transform: translate3d(0,-100%,0);
+	}
+	100% {
+		transform: translate3d(0,0%,0);
+	}
+}

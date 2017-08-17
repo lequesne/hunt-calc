@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "ChevinStd-Light";
+    src: url("ChevinStd-Light.eot");
+    src: url("ChevinStd-Light.eot?#iefix") format("embedded-opentype"),
+         url("ChevinStd-Light.woff2") format("woff2"),
+         url("ChevinStd-Light.woff") format("woff"),
+         url("ChevinStd-Light.ttf") format("truetype"),
+         url("ChevinStd-Light.svg#ChevinStd-Light") format("svg");
+    font-weight: 300;
+    font-style: normal;
+}

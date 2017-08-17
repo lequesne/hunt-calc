@@ -1,0 +1,77 @@
+<div id="intro" class="viewport" ng-cloak>
+    <a ui-sref="main.start" class="btn clear sm fixed-top-left">
+        <span class="icon icon-chevron-back left"></span> Back
+    </a>
+    <!--popup overlays-->
+    <div ng-show="activePopup=='energy'" class="viewport overlay solar-arrows"></div>
+    <!-- <img ng-show="activePopup=='energy'" class="solar-arrows" src="assets/images/shared-solar-arrows.png"/> -->
+    <div class="table-vert-center text-center">
+        <div class="vert-inner">
+            <div class="stage">
+                <div class="stage-contents">
+                    <img class="logo" src="assets/images/huntlee-logo-color.svg" />
+                    <div class="carousel">
+                        <div class="" data-popup="community">
+                            <div class="slide-container">
+                                <h2>
+				    				Your community
+				    			</h2> You’ll unlock energy benefits by joining the community as an owner or a resident. Owners will receive an annual cashback payment for their contribution to the community energy network and residents will benefit from competitive rates and lower bills.
+                            </div>
+                        </div>
+                        <div class="" data-popup="local">
+                            <div class="slide-container">
+                                <h2>
+			    					Local power
+			    				</h2> Every roof will be playing its role, contributing to the local energy supply and storing any surplus, so the power will always be on when you need it.
+                            </div>
+                        </div>
+                        <div class="" data-popup="energy">
+                            <div class="slide-container">
+                                <h2>
+			    					Renewable benefits
+			    				</h2> Through smart energy innovation, your whole community will be massively more energy efficient. You’ll enjoy more renewable energy at a cheaper price and reduce your carbon footprint.
+                            </div>
+                        </div>
+                    </div>
+                    <a ui-sref="main.houses" class="btn start">
+						Start building your home
+						<span class="icon icon-chevron-forward"></span>
+					</a>
+                    <!--popup features-->
+                    <div class="popups table-vert-center">
+                        <div class="vert-inner">
+                            <div class="popup-container">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <div ui-sref="main.houses" class="popup circle-feature community" ng-show="activePopup=='community'">
+                                            <div class="label-plate">
+                                                Embedded solar
+                                            </div>
+                                            <!-- <div class="line"></div> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div ui-sref="main.houses" class="popup circle-feature local" ng-show="activePopup=='local'">
+                                            <div class="label-plate">
+                                                Safe and secure
+                                            </div>
+                                            <!-- <div class="line"></div> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div ui-sref="main.houses" class="popup circle-feature energy" ng-show="activePopup=='energy'">
+                                            <div class="label-plate">
+                                                Shared solar network
+                                            </div>
+                                            <!-- <div class="line"></div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,214 @@
+//intro page styles
+
+#intro {
+	background-image: url(#{$imgPath}Community-Day.jpg);
+	background-size: cover;
+	background-position: center center;
+
+	.logo {
+		max-width: 280px;
+		margin: 34px 0;
+	}
+
+	.carousel {
+		position: relative;
+		z-index: 20;
+		height: 100vh !important;
+		//max-width: 560px;
+		font-size: 20px;
+
+		.slide-container {
+			max-width: 560px;
+			margin: auto;
+			//opacity: 0;
+			//transition: all .5s;
+		}
+
+		.lslide.active {
+			.slide-container {
+				//opacity: 1;
+			}
+		}
+	}
+
+	//pagination nav
+	.lSPager {
+		position: absolute;
+		z-index: 99999;
+		top: 440px;
+		left: 50%;
+		transform: translate(-50%,-50%) !important;
+	}
+
+	.btn.start {
+		position: absolute;
+		top: 340px;
+		left: 50%;
+		transform: translate(-50%,-50%);
+	}
+
+	.lSSlideOuter .lSPager.lSpg>li a {
+		width: 15px;
+		height: 15px;
+		border-radius: 100%;
+		background: white;
+	}
+
+	.lSSlideOuter .lSPager.lSpg>li.active a, .lSSlideOuter .lSPager.lSpg>li:hover a {
+		background: $huntlee_teal_light;
+	}
+
+	.lSSlideOuter .lSPager.lSpg>li {
+		padding: 0 8px;
+	}
+
+	.btn.start {
+		margin: 30px 0;
+	}
+
+	.popups {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 60vh;
+
+		.popup-container {
+			margin: auto;
+			max-width: 1200px;
+		}
+	}
+
+	//overlays
+	.solar-arrows {
+		background: url(#{$imgPath}shared-solar-overlay.png);
+		background-size: cover;
+		background-position: center center;
+		//animation: expandCycle 3s infinite;
+		transform-origin: 52% 67%;
+		transition: all .5s;
+
+		&.ng-hide {
+			animation: none;
+			opacity: 0;
+		}
+
+		@keyframes expandCycle {
+			0% {
+				opacity: 0;
+				transform: scale(0.8);
+			}
+			25% {
+				opacity: 1;
+				transform: scale(1);
+			}
+			75% {
+				opacity: 1;
+				transform: scale(1);
+			}
+			100% {
+				opacity: 0;
+				transform: scale(1);
+			}
+		}
+	}
+
+	//popups
+	.popup {
+		display: block;
+		position: relative;
+		z-index: 100;
+		//position: absolute;
+		width: 270px;
+		margin: auto;
+		background-size: cover;
+		background-position: center center;
+		box-shadow: 0 0 10px 1px rgba(black, 0.2);
+		overflow: visible;
+		transition: all .4s cubic-bezier(#{$easeInOutBack});
+
+		&.ng-hide {
+			transform: scale(0);
+
+			.line {
+				//height: 0;
+			}
+		}
+
+		&.community {
+			//top: 40%;
+    		//left: 9%;
+			background-image: url(#{$imgPath}popup-solar.jpg);
+
+			.line {
+				top: calc( 100% + 8px );
+				right: 80px;
+				transform-origin: 0 0;
+				transform: rotate( -40deg );
+			}
+		}
+
+		&.local {
+			//left: 29%;
+    		//bottom: 10%;
+			background-image: url(#{$imgPath}popup-local.jpg);
+
+			.line {
+				top: 20%;
+				right: 10px;
+				transform-origin: 0 0;
+				transform: rotate(-135deg);
+			}
+		}
+
+		&.energy {
+			//left: 69%;
+    		//top: 32%;
+			background-image: url(#{$imgPath}popup-energy.jpg);
+
+			.line {
+				top: calc( 100% + 8px );
+				left: 80px;
+				transform-origin: 0 0;
+				transform: rotate( 40deg );
+			}
+		}
+
+		.line {
+			position: absolute;
+			width: 3px;
+			height: 100px;
+			background: white;
+			transition: all .2s;
+			transition-delay: .3s;
+
+			&:after {
+				content: '';
+				position: absolute;
+				width: 12px;
+				height: 12px;
+				background: $inset_bg_light;
+				border: 3px solid white !important;
+				border-radius: 100%;
+				left: 50%;
+				bottom: 0;
+				margin-left: -6px;
+			}
+		}
+
+		.label-plate {
+			position: absolute;
+			bottom: -10px;
+			left: 0;
+			width: 100%;
+			text-align: center;
+			padding: 12px 5px 8px 5px;
+			color: $default_copy_color;
+			font-size: 21px;
+			background: $inset_bg_light;
+			border-radius: $border-radius;
+			border: 8px solid white !important;
+			box-shadow: 0 3px 3px 1px rgba(black, 0.1);
+		}
+	}
+}

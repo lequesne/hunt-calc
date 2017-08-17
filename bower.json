@@ -1,0 +1,38 @@
+{
+  "name": "huntleeCalculator",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular-animate": "~1.4.2",
+    "angular-cookies": "~1.4.2",
+    "angular-touch": "~1.4.2",
+    "jquery": "~2.1.4",
+    "angular-resource": "~1.4.2",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap-sass": "~3.3.5",
+    "animate.css": "~3.4.0",
+    "angular": "~1.4.2",
+    "normalize-css": "normalize.css#^3.0.3",
+    "lightslider": "^1.1.5",
+    "ng-dialog": "^0.5.9",
+    "odometer": "^0.4.7"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.2"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": [
+        "assets/stylesheets/_bootstrap.scss",
+        "assets/fonts/bootstrap/glyphicons-halflings-regular.eot",
+        "assets/fonts/bootstrap/glyphicons-halflings-regular.svg",
+        "assets/fonts/bootstrap/glyphicons-halflings-regular.ttf",
+        "assets/fonts/bootstrap/glyphicons-halflings-regular.woff",
+        "assets/fonts/bootstrap/glyphicons-halflings-regular.woff2"
+      ]
+    }
+  },
+  "resolutions": {
+    "jquery": "~2.1.4",
+    "angular": "~1.4.2"
+  }
+}

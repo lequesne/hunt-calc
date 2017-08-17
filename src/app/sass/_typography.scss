@@ -1,0 +1,57 @@
+//font and typography styles
+
+body, .ngdialog.ngdialog-theme-default .ngdialog-content {
+	color: $default_copy_color;
+	font-family: $default_font;
+	font-size: 18px;
+}
+
+h1, h2, h3, h4, h5 {
+	line-height: 1.5em;
+}
+
+h1 {
+
+}
+
+h2 {
+	font-size: 30px;
+	font-family: $light_font;
+	color: #4a463f;
+}
+
+a {
+	text-decoration: none !important;
+
+	&:hover {
+		color: $huntlee_teal_light;
+	}
+}
+
+p {
+	margin: 1em 0;
+
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
+.large-sum { 
+	font-size: 54px;
+	line-height: 0.8em;
+	color: $huntlee_teal_light;
+
+	sup {
+		top: -0.6em;
+		margin-left: -0.8em;
+		margin-right: 0.2em;
+		font-size: 0.55em;
+	}
+}
+
+.label {
+	color: $default_copy_color;
+	padding: 0;
+	font-size: 12px;
+	font-weight: normal;
+}

@@ -1,0 +1,183 @@
+<div id="features" ng-cloak>
+
+	<!--Fixed details and Nav top bar-->
+    <div class="details-bar-wrapper">
+        <div class="details-bar table-vert-center">
+        	<div class="vert-inner back">
+        		<a 
+                    ui-sref="main.houses" 
+                    ng-click="trackHouseFeatures('Click back')"
+                    class="btn sm clear block">
+        			<span class="icon icon-chevron-back left"></span>
+        			Back
+        		</a>
+        		<div class="beds">
+                    <span class="icon icon-bed" ng-class="{ active : house.beds > 0 }"></span>
+                    <span class="icon icon-bed" ng-class="{ active : house.beds > 1 }"></span>
+                    <span class="icon icon-bed" ng-class="{ active : house.beds > 2 }"></span>
+                    <span class="icon icon-bed" ng-class="{ active : house.beds > 3 }"></span>
+                    <span class="icon icon-bed" ng-class="{ active : house.beds > 4 }"></span>
+                </div>
+        	</div>
+        	<div 
+                class="vert-inner lg-padding text-left"
+                ng-dialog="assets/dialogs/popup-annual_cashback.html"
+                ga-event-category="Popup"
+                ga-event-action="Open"
+                ga-event-label="Annual Owner Cashback">
+        		<div class="large-sum">
+        			<sup>$</sup><span odometer data="annualCashback">{{ annualCashback }}</span>
+        		</div>
+        		<span class="label">ANNUAL OWNER CASHBACK</span>
+        		<a class="icon circle text help">
+                    ?
+                </a>
+        	</div>
+        	<div 
+                class="vert-inner lg-padding text-left"
+                ng-dialog="assets/dialogs/popup-energy_savings.html"
+                ga-event-category="Popup"
+                ga-event-action="Open"
+                ga-event-label="Annual Energy Savings">
+        		<div class="large-sum">
+        			<sup>$</sup><span odometer data="annualSavings">{{ annualSavings }}</span>
+        		</div>
+        		<span class="label">ANNUAL ENERGY SAVINGS</span>
+        		<a class="icon circle text help">
+                    ?
+                </a>
+        	</div>
+        	<div 
+                class="vert-inner text-center"
+                ng-dialog="assets/dialogs/popup-efficiency_scale.html"
+                ga-event-category="Popup"
+                ga-event-action="Open"
+                ga-event-label="Energy Efficiency Scale">
+        		<div class="guage">
+        			<img class="guage-bg" src="assets/images/Dial.png"/>
+        			<img class="dial" src="assets/images/Pin.png" style="transform: rotate( {{ vandalPercent }}deg );" />
+        		</div>
+        		<span class="label">ENERGY EFFICIENCY SCALE</span>
+        		<a class="icon circle text help">
+                    ?
+                </a>
+        	</div>
+        	<div class="vert-inner">
+                <a
+                    ng-dialog="assets/dialogs/popup-terms.html"
+                    ga-event-category="Popup"
+                    ga-event-action="Open"
+                    ga-event-label="Terms and conditions">
+                    Terms and conditions
+                    <span class="icon icon-chevron-forward circle"></span>
+                </a>
+                <a
+                    ng-dialog="assets/dialogs/popup-community_savings.html"
+                    ng-dialog-class="community-savings"
+                    ng-dialog-bind-to-controller="FeaturesController"
+                    ga-event-category="Popup"
+                    ga-event-action="Open"
+                    ga-event-label="Community savings"
+                    class="btn teal sm">
+                    Community savings
+                    <span class="icon icon-chevron-forward"></span>
+                </a>
+        		<!-- <div class="row">
+        			<div class="col-xs-6 text-left">
+                        
+        			</div>
+        			<div class="col-xs-6 text-right">
+        				
+        			</div>
+        		</div> -->
+        	</div>
+        </div>
+    </div>
+
+    <div class="viewport table-vert-center {{ 'house-' + stringToClass( house.name ) }} scale-in-area">
+
+	    <div class="vert-inner">
+	        <div class="stage">
+	            <div class="stage-contents">
+
+                    <div class="overlay-container">
+    	            	<!--base house overlay-->
+    	            	<div
+    	            		class="house-overlay base"
+    	            		style="background-image: url( {{ house.overlays['base']  }} );">
+    	            	</div>
+    	            	<!--feature overlays-->
+    	            	<div
+    	            		ng-repeat="(key, overlay) in house.overlays"
+    	            		ng-show="key==selectedFeature.id"
+    	            		ng-class="{ 'active': selectedFeature.active, 'selected': key==selectedFeature.id  }"
+    	            		class="house-overlay feature {{ key }}"
+    	            		style="background-image: url( {{ overlay  }} );">
+    	            	</div>
+                    </div>
+
+	                <div class="top-layer table-vert-center">
+	                    <div class="vert-inner">
+
+	                        <!--Feature selection tab area-->
+	                        <div class="features-wrapper">
+	                            <div class="selection-area">
+	                                <div
+	                                	ng-repeat="feature in houseFeatures"
+	                                	ng-click="setSelectedFeature( feature )"
+	                                	ng-class="{ 'selected' : feature.selected, 'active' : feature.active, 'disabled' : feature.disabled }"
+	                                	class="selection-item table-vert-center"
+	                                	style="height: {{ 100 / houseFeatures.length }}%;">
+	                                    <div class="vert-inner">
+	                                    	<div class="icon {{ feature.icon }}"></div>
+	                                        {{ feature.id }}
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <div class="feature-area">
+	                                <div
+	                                	ng-repeat="feature in houseFeatures track by $index"
+	                                	ng-show="feature.selected"
+	                                	ng-class="{ 'disabled' : feature.disabled }"
+	                                	class="feature-details">
+	                                    <h2>
+											{{ feature.title }}
+										</h2>
+
+	                                    <label class="checkbox-slider"
+                                            ng-if="feature.id!=='Energy'"
+                                            ng-hide="feature.disabled"
+		                                    ng-click="feature.active=!feature.active"
+		                                    ng-swipe-left="feature.active=false"
+		                                    ng-swipe-right="feature.active=true">
+	                                        <span class="icon icon-tick"></span>
+	                                        <span class="icon icon-cross"></span>
+	                                        <input type="checkbox" ng-model="feature.active" ng-disabled="feature.disabled" />
+	                                        <div class="bg"></div>
+
+	                                        <div class="knob"></div>
+	                                    </label>
+
+	                                    <div ng-show="feature.disabled">
+                                            {{ feature.disableActiveMsg }}
+	                                    </div>
+
+                                        <div ng-hide="feature.disabled">
+                                            <hr>
+                                            {{ feature.description }}
+                                            <div ng-if="feature.breakout" class="note">
+                                                {{ feature.breakout }}
+                                            </div>
+                                        </div>
+
+	                                </div>
+	                            </div>
+	                        </div>
+
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>

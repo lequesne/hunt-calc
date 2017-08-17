@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "ChevinStd-Thin";
+    src: url("ChevinStd-Thin.eot");
+    src: url("ChevinStd-Thin.eot?#iefix") format("embedded-opentype"),
+         url("ChevinStd-Thin.woff2") format("woff2"),
+         url("ChevinStd-Thin.woff") format("woff"),
+         url("ChevinStd-Thin.ttf") format("truetype"),
+         url("ChevinStd-Thin.svg#ChevinStd-Thin") format("svg");
+    font-weight: 100;
+    font-style: normal;
+}

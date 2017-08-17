@@ -1,0 +1,68 @@
+//start page styles
+
+$circleFeatureSpace: 25px;
+
+#start {
+	background-image: url(#{$imgPath}Community-Sunrise.jpg);
+	background-size: cover;
+	background-position: center center;
+	color: white;
+
+	.logo {
+		max-width: 482px;
+		margin-top: 100px;
+	}
+
+	h2 {
+		max-width: 540px;
+		margin: 1em auto;
+		color: white;
+	}
+
+	.features {
+		margin-top: 150px;
+		color: $default_copy_color;
+
+		.row {
+			margin-left: -$circleFeatureSpace;
+			margin-right: -$circleFeatureSpace;
+		}
+
+		.row > div {
+			padding-left: $circleFeatureSpace;
+			padding-right: $circleFeatureSpace;
+		}
+	}
+
+	.circle-feature {
+		position: relative;
+		text-align: center;
+
+		img {
+			//position: absolute;
+			display: block;
+			height: 90px;
+			margin: 0 auto 15px auto;
+		}
+
+		&.water {
+			img {
+			}
+		}
+
+		&.solar {
+
+			img {
+				margin-top: 0.7em;
+			}
+		}
+
+		&.rates {
+			img {
+				//margin-bottom: 30px;
+				//height: 66px;
+			}
+		}
+
+	}
+}

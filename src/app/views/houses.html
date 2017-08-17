@@ -1,0 +1,42 @@
+<div id="houses" ng-cloak>
+
+    <a ui-sref="main.intro" class="btn clear sm fixed-top-left">
+        <span class="icon icon-chevron-back left"></span> Back
+    </a>
+
+    <div class="viewport table-vert-center text-center scale-in-area">
+
+        <div class="vert-inner">
+            <div class="stage">
+                <div class="stage-contents">
+
+                    <h2>
+    					Choose your home size
+    				</h2>
+
+                    <div
+                        ng-repeat="house in houseData track by $index"
+                        ga-event-category="House Selected"
+                        ga-event-action="Click"
+                        ga-event-label="{{house.name}}"
+                        ui-sref="main.features({ index: $index + 1 })"
+
+                        class="popup reveal {{ 'house-' + stringToClass( house.name ) }}">
+                        <div class="beds">
+                            <span ng-repeat="bed in range(house.beds)" class="icon icon-bed"></span>
+                        </div>
+    					{{house.name}}
+                        <!-- <div class="size">
+                            {{house.block}}<em>M</em><sup>2</sup> BLOCK
+                        </div> -->
+    					<a class="btn sm teal">
+    						Choose features
+    						<span class="icon icon-chevron-forward"></span>
+    					</a>
+    				</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,175 @@
+@font-face {
+	font-family: "HuntleeIcons";
+	src: url('../assets/icons/output/HuntleeIcons.eot');
+	src: url('../assets/icons/output/HuntleeIcons.eot?#iefix') format('eot'),
+		url('../assets/icons/output/HuntleeIcons.woff') format('woff'),
+		url('../assets/icons/output/HuntleeIcons.ttf') format('truetype'),
+		url('../assets/icons/output/HuntleeIcons.svg#HuntleeIcons') format('svg');
+}
+
+@mixin icon-styles {
+	font-family: "HuntleeIcons";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
+	text-transform: none;
+}
+
+%icon {
+	@include icon-styles;
+}
+
+@function icon-char($filename) {
+	$char: "";
+
+	@if $filename == _water {
+		$char: "\E001";
+	}
+	@if $filename == air {
+		$char: "\E002";
+	}
+	@if $filename == bed {
+		$char: "\E003";
+	}
+	@if $filename == checkmark {
+		$char: "\E004";
+	}
+	@if $filename == chevron-back {
+		$char: "\E005";
+	}
+	@if $filename == chevron-forward {
+		$char: "\E006";
+	}
+	@if $filename == cross {
+		$char: "\E007";
+	}
+	@if $filename == energy {
+		$char: "\E008";
+	}
+	@if $filename == error {
+		$char: "\E009";
+	}
+	@if $filename == geo {
+		$char: "\E00A";
+	}
+	@if $filename == help {
+		$char: "\E00B";
+	}
+	@if $filename == link {
+		$char: "\E00C";
+	}
+	@if $filename == menu {
+		$char: "\E00D";
+	}
+	@if $filename == minus {
+		$char: "\E00E";
+	}
+	@if $filename == placeholder {
+		$char: "\E00F";
+	}
+	@if $filename == plug {
+		$char: "\E010";
+	}
+	@if $filename == plus {
+		$char: "\E011";
+	}
+	@if $filename == search {
+		$char: "\E012";
+	}
+	@if $filename == tick {
+		$char: "\E013";
+	}
+	@if $filename == triangle-down {
+		$char: "\E014";
+	}
+	@if $filename == triangle-up {
+		$char: "\E015";
+	}
+	@if $filename == water {
+		$char: "\E016";
+	}
+
+	@return $char;
+}
+
+@mixin icon($filename, $insert: before, $extend: true) {
+	&:#{$insert} {
+		@if $extend {
+			@extend %icon;
+		} @else {
+			@include icon-styles;
+		}
+		content: icon-char($filename);
+	}
+}
+
+.icon-_water {
+	@include icon(_water);
+}
+.icon-air {
+	@include icon(air);
+}
+.icon-bed {
+	@include icon(bed);
+}
+.icon-checkmark {
+	@include icon(checkmark);
+}
+.icon-chevron-back {
+	@include icon(chevron-back);
+}
+.icon-chevron-forward {
+	@include icon(chevron-forward);
+}
+.icon-cross {
+	@include icon(cross);
+}
+.icon-energy {
+	@include icon(energy);
+}
+.icon-error {
+	@include icon(error);
+}
+.icon-geo {
+	@include icon(geo);
+}
+.icon-help {
+	@include icon(help);
+}
+.icon-link {
+	@include icon(link);
+}
+.icon-menu {
+	@include icon(menu);
+}
+.icon-minus {
+	@include icon(minus);
+}
+.icon-placeholder {
+	@include icon(placeholder);
+}
+.icon-plug {
+	@include icon(plug);
+}
+.icon-plus {
+	@include icon(plus);
+}
+.icon-search {
+	@include icon(search);
+}
+.icon-tick {
+	@include icon(tick);
+}
+.icon-triangle-down {
+	@include icon(triangle-down);
+}
+.icon-triangle-up {
+	@include icon(triangle-up);
+}
+.icon-water {
+	@include icon(water);
+}
